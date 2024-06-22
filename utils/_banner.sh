@@ -24,9 +24,14 @@ print_banner() {
 printf "${CYAN_LIGHT}";
 
 
-
+printf ${CYAN_LIGHT}" Para instalar a instancia de WhatsApp você deve utilizar o link:   \n";  
+printf ${CYAN_LIGHT}"\n"; 
+printf ${CYAN_LIGHT}" \n";
+printf ${CYAN_LIGHT}"   \n";
+printf ${CYAN_LIGHT}"    n";
+printf ${CYAN_LIGHT}"     \n";
                                                                                                                                                          
-  printf "            \033[1;33m        Castino so http";
+  printf "            \033[1;33m        ©\n";
   printf "${NC}";
 
   printf "\n"

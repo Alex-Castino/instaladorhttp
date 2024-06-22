@@ -46,12 +46,12 @@ backend_set_env() {
   # ensure idempotency
   backend_url=$(echo "${backend_url/https:\/\/}")
   backend_url=${backend_url%%/*}
-  backend_url=http://$backend_url
+  backend_url=https://$backend_url
 
   # ensure idempotency
   frontend_url=$(echo "${frontend_url/https:\/\/}")
   frontend_url=${frontend_url%%/*}
-  frontend_url=http://$frontend_url
+  frontend_url=https://$frontend_url
 
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/${instancia_add}/backend/.env
@@ -235,7 +235,7 @@ backend_nginx_setup() {
 
   sleep 2
 
-  backend_hostname=$(echo "${backend_url/http:\/\/}")
+  backend_hostname=$(echo "${backend_url/https:\/\/}")
 
 sudo su - root << EOF
 cat > /etc/nginx/sites-available/${instancia_add}-backend << 'END'

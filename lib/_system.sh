@@ -29,7 +29,7 @@ EOF
 #######################################
 system_git_clone() {
   print_banner
-  printf "${WHITE} 💻 Fazendo download do código Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Fazendo download do código da Instancia de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
 
@@ -49,7 +49,7 @@ EOF
 #######################################
 system_update() {
   print_banner
-  printf "${WHITE} 💻 Vamos atualizar o sistema Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos atualizar o sistema de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -71,7 +71,7 @@ EOF
 #######################################
 deletar_tudo() {
   print_banner
-  printf "${WHITE} 💻 Vamos deletar o Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos deletar a Instancia de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -117,7 +117,7 @@ EOF
 #######################################
 configurar_bloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos bloquear o Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos bloquear a Instancia de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -144,7 +144,7 @@ EOF
 #######################################
 configurar_desbloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Desbloquear o Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Desbloquear a Instancia de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -170,7 +170,7 @@ EOF
 #######################################
 configurar_dominio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Alterar os Dominios do Canal Vem Fazer...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Alterar os Dominios da Instancia de WhatsApp...${GRAY_LIGHT}"
   printf "\n\n"
 
 sleep 2
@@ -186,15 +186,15 @@ sleep 2
 
   sudo su - deploy <<EOF
   cd && cd /home/deploy/${empresa_dominio}/frontend
-  sed -i "1c\REACT_APP_BACKEND_URL=http://${alter_backend_url}" .env
+  sed -i "1c\REACT_APP_BACKEND_URL=https://${alter_backend_url}" .env
   cd && cd /home/deploy/${empresa_dominio}/backend
-  sed -i "2c\BACKEND_URL=http://${alter_backend_url}" .env
-  sed -i "3c\FRONTEND_URL=http://${alter_frontend_url}" .env 
+  sed -i "2c\BACKEND_URL=https://${alter_backend_url}" .env
+  sed -i "3c\FRONTEND_URL=https://${alter_frontend_url}" .env 
 EOF
 
 sleep 2
    
-   backend_hostname=$(echo "${alter_backend_url/http:\/\/}")
+   backend_hostname=$(echo "${alter_backend_url/https:\/\/}")
 
  sudo su - root <<EOF
   cat > /etc/nginx/sites-available/${empresa_dominio}-backend << 'END'
@@ -218,7 +218,7 @@ EOF
 
 sleep 2
 
-frontend_hostname=$(echo "${alter_frontend_url/http:\/\/}")
+frontend_hostname=$(echo "${alter_frontend_url/https:\/\/}")
 
 sudo su - root << EOF
 cat > /etc/nginx/sites-available/${empresa_dominio}-frontend << 'END'
@@ -248,8 +248,8 @@ EOF
 
   sleep 2
 
-  backend_domain=$(echo "${backend_url/http:\/\/}")
-  frontend_domain=$(echo "${frontend_url/http:\/\/}")
+  backend_domain=$(echo "${backend_url/https:\/\/}")
+  frontend_domain=$(echo "${frontend_url/https:\/\/}")
 
   sudo su - root <<EOF
   certbot -m $deploy_email \
@@ -526,8 +526,8 @@ system_certbot_setup() {
 
   sleep 2
 
-  backend_domain=$(echo "${backend_url/http:\/\/}")
-  frontend_domain=$(echo "${frontend_url/http:\/\/}")
+  backend_domain=$(echo "${backend_url/https:\/\/}")
+  frontend_domain=$(echo "${frontend_url/https:\/\/}")
 
   sudo su - root <<EOF
   certbot -m $deploy_email \

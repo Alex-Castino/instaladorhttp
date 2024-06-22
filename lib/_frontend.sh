@@ -85,7 +85,7 @@ frontend_set_env() {
   # ensure idempotency
   backend_url=$(echo "${backend_url/https:\/\/}")
   backend_url=${backend_url%%/*}
-  backend_url=http://$backend_url
+  backend_url=https://$backend_url
 
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/${instancia_add}/frontend/.env
@@ -153,7 +153,7 @@ frontend_nginx_setup() {
 
   sleep 2
 
-  frontend_hostname=$(echo "${frontend_url/http:\/\/}")
+  frontend_hostname=$(echo "${frontend_url/https:\/\/}")
 
 sudo su - root << EOF
 
