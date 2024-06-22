@@ -186,10 +186,10 @@ sleep 2
 
   sudo su - deploy <<EOF
   cd && cd /home/deploy/${empresa_dominio}/frontend
-  sed -i "1c\REACT_APP_BACKEND_URL=http://${alter_backend_url}" .env
+  sed -i "1c\REACT_APP_BACKEND_URL=https://${alter_backend_url}" .env
   cd && cd /home/deploy/${empresa_dominio}/backend
-  sed -i "2c\BACKEND_URL=http://${alter_backend_url}" .env
-  sed -i "3c\FRONTEND_URL=http://${alter_frontend_url}" .env 
+  sed -i "2c\BACKEND_URL=https://${alter_backend_url}" .env
+  sed -i "3c\FRONTEND_URL=https://${alter_frontend_url}" .env 
 EOF
 
 sleep 2
