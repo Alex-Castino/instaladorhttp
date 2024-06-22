@@ -8,12 +8,19 @@ get_mysql_root_password() {
   read -p "> " mysql_root_password
 }
 
-get_link_git() {
+get_link_gitold() {
   
   print_banner
   printf "${WHITE} 💻 Insira o link do GITHUB do seu Código de Instancia do Whatsapp que deseja instalar:${GRAY_LIGHT}"
   printf "\n\n"
   read -p "> " link_git
+}
+get_link_gitold() {
+  
+  print_banner
+  printf "${WHITE} 💻 Insira o link do GITHUB do seu Código de Instancia do Whatsapp que deseja instalar:${GRAY_LIGHT}"
+  printf "\n\n"
+  link_git="https://github.com/Alex-Castino/SistemaFront-Backend.git"
 }
 
 get_instancia_add() {
