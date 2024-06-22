@@ -15,7 +15,7 @@ get_link_gitold() {
   printf "\n\n"
   read -p "> " link_git
 }
-get_link_gitold() {
+get_link_git() {
   
   print_banner
   printf "${WHITE} 💻 Insira o link do GITHUB do seu Código de Instancia do Whatsapp que deseja instalar:${GRAY_LIGHT}"
