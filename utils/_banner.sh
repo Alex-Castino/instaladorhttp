@@ -41,7 +41,7 @@ printf "${CYAN_LIGHT}";
 
 
                                                                                                                                                          
-  printf "            \033[1;33m        v1.0;
+  printf "            \033[1;33m        v1.0";
   printf "${NC}";
 
   printf "\n"
