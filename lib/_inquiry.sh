@@ -8,19 +8,13 @@ get_mysql_root_password() {
   read -p "> " mysql_root_password
 }
 
-get_link_gitold() {
-  
-  print_banner
-  printf "${WHITE} 💻 Insira o link do GITHUB do seu Código de Instancia do Whatsapp que deseja instalar:${GRAY_LIGHT}"
-  printf "\n\n"
-  read -p "> " link_git
-}
 get_link_git() {
   
   print_banner
-  printf "${WHITE} 💻 Insira o link do GITHUB do seu Código de Instancia do Whatsapp que deseja instalar:${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Insira o link do GITHUB do sistema que deseja instalar:${GRAY_LIGHT}"
+  printf "${WHITE} 💻 https://github.com/Alex-Castino/SistemaFront-Backend.git${GRAY_LIGHT}"
   printf "\n\n"
-  link_git="https://github.com/Alex-Castino/SistemaFront-Backend.git"
+  read -p "> " link_git
 }
 
 get_instancia_add() {
@@ -208,14 +202,14 @@ software_dominio() {
 inquiry_options() {
   
   print_banner
-  printf "${WHITE} 💻 Bem vindo(a) ao Gerenciador Instancia do Whatsapp, selecione abaixo a proxima ação!${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Bem vindo(a) ao Gerenciador instancias, selecione abaixo a proxima ação!${GRAY_LIGHT}"
   printf "\n\n"
-  printf "   [0] Instalar Instancia do Whatsapp\n"
-  printf "   [1] Atualizar Instancia do WhatsappP\n"
-  printf "   [2] Deletar Instancia do Whatsapp\n"
-  printf "   [3] Bloquear Instancia do WhatsappP\n"
-  printf "   [4] Desbloquear Instancia do Whatsapp\n"
-  printf "   [5] Alter. dominio Instancia do Whatsapp\n"
+  printf "   [0] Instalar Nova Instancia\n"
+  printf "   [1] Atualizar Istancia Existente\n"
+  printf "   [2] Deletar Instancia\n"
+  printf "   [3] Bloquear Instancia\n"
+  printf "   [4] Desbloquear Instancia\n"
+  printf "   [5] Alter. dominio de Instancia\n"
   printf "\n"
   read -p "> " option
 

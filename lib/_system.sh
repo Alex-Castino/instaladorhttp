@@ -29,7 +29,7 @@ EOF
 #######################################
 system_git_clone() {
   print_banner
-  printf "${WHITE} 💻 Fazendo download do código da Instancia de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Fazendo download do código da instancia...${GRAY_LIGHT}"
   printf "\n\n"
 
 
@@ -49,7 +49,7 @@ EOF
 #######################################
 system_update() {
   print_banner
-  printf "${WHITE} 💻 Vamos atualizar o sistema de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos atualizar o sistema...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -71,7 +71,7 @@ EOF
 #######################################
 deletar_tudo() {
   print_banner
-  printf "${WHITE} 💻 Vamos deletar a Instancia de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos deletar a Instancia...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -117,7 +117,7 @@ EOF
 #######################################
 configurar_bloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos bloquear a Instancia de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos bloquear a Instancia...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -144,7 +144,7 @@ EOF
 #######################################
 configurar_desbloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Desbloquear a Instancia de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Desbloquear a Instancia...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -170,7 +170,7 @@ EOF
 #######################################
 configurar_dominio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Alterar os Dominios da Instancia de WhatsApp...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Alterar os Dominios da Instancia...${GRAY_LIGHT}"
   printf "\n\n"
 
 sleep 2
@@ -186,10 +186,10 @@ sleep 2
 
   sudo su - deploy <<EOF
   cd && cd /home/deploy/${empresa_dominio}/frontend
-  sed -i "1c\REACT_APP_BACKEND_URL=http://${alter_backend_url}" .env
+  sed -i "1c\REACT_APP_BACKEND_URL=https://${alter_backend_url}" .env
   cd && cd /home/deploy/${empresa_dominio}/backend
-  sed -i "2c\BACKEND_URL=http://${alter_backend_url}" .env
-  sed -i "3c\FRONTEND_URL=http://${alter_frontend_url}" .env 
+  sed -i "2c\BACKEND_URL=https://${alter_backend_url}" .env
+  sed -i "3c\FRONTEND_URL=https://${alter_frontend_url}" .env 
 EOF
 
 sleep 2
